@@ -1,0 +1,131 @@
+{
+    "root": {
+        "type": "object",
+        "title": "Declaration of a procurement activity",
+        "properties": {
+            "activityId": {
+                "type": "string",
+                "title": "Activity identifier (provided by Ezytail)",
+                "maxLength": 10,
+                "minLength": 2
+            },
+            "activityName": {
+                "type": "string",
+                "title": "Activitity name (provided by Ezytail)"
+            },
+            "procurementId": {
+                "type": "string",
+                "title": "Procurement unique Id"
+            },
+            "supplierId": {
+                "type": "string",
+                "title": ""
+            },
+            "supplierName": {
+                "type": "string",
+                "title": ""
+            },
+            "eta": {
+                "type": "string",
+                "title": "",
+                "format": "date-time"
+            },
+            "articles": {
+                "type": "array",
+                "title": "",
+                "items": {
+                    "type": "object",
+                    "properties": {
+                        "id": {
+                            "type": "integer",
+                            "title": "Sequential line identifier (1, 2, ...)"
+                        },
+                        "articleId": {
+                            "type": "string",
+                            "title": ""
+                        },
+                        "quantity": {
+                            "type": "integer",
+                            "title": ""
+                        },
+                        "supplierOrderId": {
+                            "type": "string",
+                            "title": ""
+                        },
+                        "message": {
+                            "type": "string",
+                            "title": ""
+                        },
+                        "extraInfos1": {
+                            "type": "string",
+                            "title": ""
+                        },
+                        "extraInfos2": {
+                            "type": "string",
+                            "title": ""
+                        },
+                        "extraInfos3": {
+                            "type": "string",
+                            "title": ""
+                        }
+                    },
+                    "required": [
+                        "id",
+                        "articleId",
+                        "quantity"
+                    ],
+                    "title": ""
+                }
+            },
+            "report": {
+                "type": "object",
+                "title": "",
+                "properties": {
+                    "statusCode": {
+                        "type": "integer",
+                        "title": "1=In progress, 9=Done"
+                    },
+                    "processDate": {
+                        "type": "string",
+                        "title": "Date of the procurement process",
+                        "format": "date-time"
+                    },
+                    "items": {
+                        "type": "array",
+                        "title": "",
+                        "items": {
+                            "type": "object",
+                            "properties": {
+                                "id": {
+                                    "type": "integer",
+                                    "title": "Sequential line identifier (1, 2, ...)"
+                                },
+                                "articleId": {
+                                    "type": "string",
+                                    "title": ""
+                                },
+                                "quantityReceived": {
+                                    "type": "integer",
+                                    "title": ""
+                                }
+                            }
+                        }
+                    }
+                },
+                "required": [
+                    "statusCode"
+                ]
+            }
+        },
+        "required": [
+            "activityId",
+            "activityName",
+            "procurementId",
+            "processType",
+            "supplierId",
+            "supplierName",
+            "eta",
+            "articles"
+        ]
+    }
+}

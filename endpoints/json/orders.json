@@ -1,0 +1,279 @@
+{
+    "root": {
+        "type": "array",
+        "items": {
+            "type": "object",
+            "title": "An order of physical items that contains sub orders, articles and delivery instructions ",
+            "properties": {
+                "activityId": {
+                    "type": "string",
+                    "title": "Activity identifier (provided by Ezytail)",
+                    "maxLength": 10,
+                    "minLength": 2
+                },
+                "activityName": {
+                    "type": "string",
+                    "title": "Activitity name (provided by Ezytail)"
+                },
+                "orderId": {
+                    "type": "string",
+                    "title": "Order unique Id",
+                    "format": "date"
+                },
+                "externalId": {
+                    "type": "string",
+                    "title": "Optional extra identifier",
+                    "format": "date"
+                },
+                "orderDate": {
+                    "type": "string",
+                    "title": "Payment date"
+                },
+                "statusCode": {
+                    "type": "integer",
+                    "title": ""
+                },
+                "extraInfo1": {
+                    "type": "string",
+                    "title": ""
+                },
+                "extraInfo2": {
+                    "type": "string",
+                    "title": ""
+                },
+                "extraInfo3": {
+                    "type": "string",
+                    "title": ""
+                },
+                "extraInfo4": {
+                    "type": "string",
+                    "title": ""
+                },
+                "deliveryAddress": {
+                    "type": "object",
+                    "title": "Delivery instructions of all sub orders",
+                    "properties": {
+                        "title": {
+                            "type": "string",
+                            "title": ""
+                        },
+                        "firstname": {
+                            "type": "string",
+                            "title": ""
+                        },
+                        "lastname": {
+                            "type": "string",
+                            "title": ""
+                        },
+                        "addressLine1": {
+                            "type": "string",
+                            "title": ""
+                        },
+                        "addressLine2": {
+                            "type": "string",
+                            "title": ""
+                        },
+                        "addressLine3": {
+                            "type": "string",
+                            "title": ""
+                        },
+                        "postalCode": {
+                            "type": "string",
+                            "title": ""
+                        },
+                        "city": {
+                            "type": "string",
+                            "title": ""
+                        },
+                        "country": {
+                            "type": "string",
+                            "title": ""
+                        },
+                        "email": {
+                            "type": "string",
+                            "title": ""
+                        },
+                        "phoneNumber": {
+                            "type": "string",
+                            "title": ""
+                        }
+                    },
+                    "required": [
+                        "title",
+                        "addressLine1",
+                        "postalCode",
+                        "city",
+                        "country",
+                        "email",
+                        "phoneNumber",
+                        "lastname"
+                    ]
+                },
+                "items": {
+                    "type": "array",
+                    "items": {
+                        "type": "object",
+                        "properties": {
+                            "id": {
+                                "type": "integer",
+                                "title": "Sequential line identifier (1, 2, ...)"
+                            },
+                            "articleId": {
+                                "type": "string",
+                                "title": ""
+                            },
+                            "quantity": {
+                                "type": "integer",
+                                "title": ""
+                            },
+                            "stockId": {
+                                "type": "string",
+                                "title": ""
+                            },
+                            "articleName": {
+                                "type": "string",
+                                "title": ""
+                            },
+                            "extraInfo2": {
+                                "type": "string",
+                                "title": ""
+                            },
+                            "extraInfo3": {
+                                "type": "string",
+                                "title": ""
+                            },
+                            "extraInfo4": {
+                                "type": "string",
+                                "title": ""
+                            }
+                        },
+                        "required": [
+                            "id",
+                            "quantity",
+                            "articleId"
+                        ]
+                    },
+                    "title": "Products included in the order"
+                },
+                "report": {
+                    "type": "object",
+                    "title": "Report details of the order processing",
+                    "properties": {
+                        "preparationResult": {
+                            "type": "integer",
+                            "title": "10=Complete, 15=Partial, 20=Cancelled"
+                        },
+                        "firstPreparationDate": {
+                            "type": "string",
+                            "title": "Start of the preparation date or cancellation date",
+                            "format": "date-time"
+                        },
+                        "quantityOfParcels": {
+                            "type": "integer",
+                            "title": "Quantity of parcels processed"
+                        },
+                        "items": {
+                            "type": "object",
+                            "title": "",
+                            "properties": {
+                                "id": {
+                                    "type": "integer",
+                                    "title": "Sequential line identifier (1, 2, ...)"
+                                },
+                                "articleId": {
+                                    "type": "string",
+                                    "title": ""
+                                },
+                                "quantityOrdered": {
+                                    "type": "integer",
+                                    "title": "Quantity originally ordered"
+                                },
+                                "quantityPrepared": {
+                                    "type": "integer",
+                                    "title": "Quantity served in parcels"
+                                }
+                            }
+                        },
+                        "parcels": {
+                            "type": "array",
+                            "title": "",
+                            "items": {
+                                "type": "object",
+                                "title": "",
+                                "properties": {
+                                    "parcelId": {
+                                        "type": "string",
+                                        "title": ""
+                                    },
+                                    "palletId": {
+                                        "type": "string",
+                                        "title": ""
+                                    },
+                                    "trackingNumber": {
+                                        "type": "string",
+                                        "title": ""
+                                    },
+                                    "carrierServiceId": {
+                                        "type": "string",
+                                        "title": ""
+                                    },
+                                    "carrierPickupId": {
+                                        "type": "string",
+                                        "title": ""
+                                    },
+                                    "parcelPreparationDate": {
+                                        "type": "string",
+                                        "title": "",
+                                        "format": "date-time"
+                                    },
+                                    "parcelPickupDate": {
+                                        "type": "string",
+                                        "title": "",
+                                        "format": "date-time"
+                                    },
+                                    "parcelNumber": {
+                                        "type": "integer",
+                                        "title": "If multii-parcel, otherwise expect value 1"
+                                    },
+                                    "items": {
+                                        "type": "object",
+                                        "title": "",
+                                        "properties": {
+                                            "articleId": {
+                                                "type": "string",
+                                                "title": ""
+                                            },
+                                            "quantity": {
+                                                "type": "integer",
+                                                "title": "Quantity inside the parcel"
+                                            }
+                                        }
+                                    }
+                                },
+                                "required": [
+                                    "parcelId",
+                                    "trackingNumber",
+                                    "carrierServiceId",
+                                    "parcelPreparationDate",
+                                    "parcelNumber"
+                                ]
+                            }
+                        }
+                    },
+                    "required": [
+                        "preparationResult",
+                        "items"
+                    ]
+                }
+            },
+            "required": [
+                "orderId",
+                "activityId",
+                "activityName",
+                "orderDate",
+                "deliveryAddress",
+                "deliveries"
+            ]
+        }
+    }
+}

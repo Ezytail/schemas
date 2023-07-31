@@ -1,0 +1,110 @@
+{
+    "root": {
+        "type": "object",
+        "title": "A partial or full update of physical product informations",
+        "properties": {
+            "activityId": {
+                "type": "string",
+                "title": "Activity identifier (provided by Ezytail)",
+                "maxLength": 10,
+                "minLength": 2
+            },
+            "activityName": {
+                "type": "string",
+                "title": "Activitity name (provided by Ezytail)"
+            },
+            "articles": {
+                "type": "array",
+                "title": "",
+                "items": {
+                    "type": "object",
+                    "properties": {
+                        "aricleId": {
+                            "type": "string",
+                            "title": ""
+                        },
+                        "shortDescription": {
+                            "type": "string",
+                            "title": ""
+                        },
+                        "fullDescription": {
+                            "type": "string",
+                            "title": ""
+                        },
+                        "netWeight": {
+                            "type": "integer",
+                            "title": "Value in metric grams"
+                        },
+                        "grossWeight": {
+                            "type": "integer",
+                            "title": "Value in metric grams"
+                        },
+                        "height": {
+                            "type": "integer",
+                            "title": "Value in metric centimeters"
+                        },
+                        "width": {
+                            "type": "integer",
+                            "title": "Value in metric centimeters"
+                        },
+                        "depth": {
+                            "type": "integer",
+                            "title": "Value in metric centimeters"
+                        },
+                        "manufacturerId": {
+                            "type": "string",
+                            "title": ""
+                        },
+                        "manufacturerName": {
+                            "type": "string",
+                            "title": ""
+                        },
+                        "categoryId": {
+                            "type": "string",
+                            "title": ""
+                        },
+                        "barcodes": {
+                            "type": "array",
+                            "title": "",
+                            "items": {
+                                "type": "object",
+                                "properties": {
+                                    "packagingType": {
+                                        "type": "string",
+                                        "title": "",
+                                        "enum": [
+                                            "UVC",
+                                            "SPCB",
+                                            "PCB",
+                                            "COUCHE",
+                                            "PALETTE"
+                                        ]
+                                    },
+                                    "isPrimary": {
+                                        "type": "boolean",
+                                        "title": "Defaults to true"
+                                    },
+                                    "code": {
+                                        "type": "string",
+                                        "title": ""
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "required": [
+                        "aricleId",
+                        "shortDescription",
+                        "fullDescription",
+                        "netWeight"
+                    ]
+                }
+            }
+        },
+        "required": [
+            "activityId",
+            "activityName",
+            "articles"
+        ]
+    }
+}
